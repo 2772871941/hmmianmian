@@ -2,6 +2,7 @@
   <div>
     <!-- <router-link to="#" >点我</router-link> -->
     <el-button>dw</el-button>
+    <router-view></router-view>
   </div>
 </template>
 
