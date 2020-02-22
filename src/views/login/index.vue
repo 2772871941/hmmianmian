@@ -41,17 +41,29 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button @click="goLogin" class="el-button" type='primary'>登录</el-button>
-          <el-button class="el-button" type='primary'>注册</el-button>
+          <el-button @click="goLogin" class="el-button1" type='primary'>登录</el-button>
+          <el-button class="el-button1" type='primary' @click="goRegist">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
+    <!-- 图片 -->
     <img src="./images/login_banner_ele.png" alt />
+
+    <!-- 对话框 -->
+    <reg ref="reg"></reg>
   </div>
 </template>
 
 <script>
+import reg from './components/regist'
 export default {
+  components:{
+    reg
+  },
+  created(){
+    console.log(process.env.VUE_APP_URL);
+    
+  },
   data() {
     return {
       //跟表单双向绑定的数据
@@ -85,6 +97,9 @@ export default {
           alert('全部通过')
         }
       })
+    },
+    goRegist(){
+      this.$refs.reg.dialogFormVisible=true
     }
   }
 };
@@ -143,6 +158,7 @@ export default {
   .code{
     width: 100%;
     height: 42px;
+    vertical-align: top;
   }
   .checks{
     display: flex;
@@ -151,7 +167,7 @@ export default {
     align-items: center
   }
   }
-  .el-button{
+  .el-button1{
     width: 100%;
     &:nth-child(2){
       margin-left: 0;
